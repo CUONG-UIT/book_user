@@ -1,0 +1,8 @@
+<% if @books.blank?%>
+  <h1>There are no Book</h1>
+  <% else %>
+  <h1>There are some Books</h1>
+  <% @books.each do |book| %>
+  <h2><%= link_to book.title ,book_path(book)%></h2>
+    <% end %>
+<% end %>

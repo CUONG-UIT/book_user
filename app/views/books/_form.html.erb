@@ -1,0 +1,17 @@
+<%= form_with model: @book do |form| %>
+<p>
+  <%= form.label :Title %>
+  <%= form.text_field :title %>
+</p>
+  <p>
+    <%= form.label :Description %>
+    <%= form.text_area :description %>
+  </p>
+  <p>
+    <%= form.label :Author %>
+    <%= form.text_field :author %>
+  </p>
+  <p>
+  <%= form.submit %>
+  </p>
+<% end %>

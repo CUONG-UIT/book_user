@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Application</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+
+<!------------------------------------------------------------------------------------>
+  <nav class="navbar navbar-default">
+
+    <div class ="container">
+
+      <div class="navbar-header" >
+        <h1><%= link_to "Book Review" ,root_path %> </h1>
+      </div>
+
+      <ul class = "nav navbar-nav">
+        <li>
+          <h2> <%= link_to "Sign_up" ,new_user_registration_path %></h2>
+        </li>
+
+          <% if user_signed_in? %>
+          <!--when user sign in then-->
+          <li>
+          <h2>  <%= link_to "Sign_out",destroy_user_session_path,method: :delete %> </h2>
+          </li>
+            <% else %>
+          <li>
+            <h2>  <%= link_to "Log_in",new_user_session_path %> </h2>
+          </li>
+          <% end %>
+        </li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li>
+          <%= link_to "Add New Book" ,new_book_path %>
+        </li>
+        <% end %>
+      </ul>
+
+    </div>
+  </nav>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+<!-------------------------------------------------------------------------------------------->
+
+
+  <%= yield %>
+  </body>
+</html>
