@@ -11,8 +11,16 @@
 <p>
   <strong>Category: <%= Category.find(@book.category_id).name %></strong><hr>
 </p>
-<%= link_to "Back" ,books_path %>
 
+<h2>Comment</h2>
+<p>
+  <%= render @book.comments %>
+</p>
+<h2>Add Comment</h2>
+<p>
+  <%= render 'comments/form' %>
+</p>
+<%= link_to "Back" ,books_path %>
 
 <% if user_signed_in? %>
   <% if @book.user_id == current_user.id %>
