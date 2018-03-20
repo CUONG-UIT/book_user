@@ -3,6 +3,11 @@
   <% else %>
   <h1>There are some Books</h1>
   <% @books.each do |book| %>
-  <h4><%= link_to book.title ,book_path(book)%></h4>
+  <!--<h4><%= link_to book.title ,book_path(book)%></h4>-->
+
+    <a href="/books/<%= book.id %>">
+      <%= image_tag book.book_img.url(:book_show) %>
+    </a>
+
     <% end %>
 <% end %>

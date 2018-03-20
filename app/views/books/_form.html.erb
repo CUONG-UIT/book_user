@@ -1,4 +1,7 @@
 <%= form_with model: @book do |form| %>
+  <p>
+    <%= form.file_field :book_img %>
+  </p>
 <p>
   <%= form.label :Title %>
   <%= form.text_field :title %>
