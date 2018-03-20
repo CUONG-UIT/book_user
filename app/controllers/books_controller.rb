@@ -10,10 +10,10 @@ class BooksController < ApplicationController
 
   def new
     @book = current_user.books.build
-    #build books from user
   end
 
   def create
+
     @book = current_user.books.build(book_params)
 
     if @book.save
@@ -43,7 +43,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title , :description ,:author)
+    params.require(:book).permit(:title , :description ,:author ,:category_id)
   end
 
   def book_find
