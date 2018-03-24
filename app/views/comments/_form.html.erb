@@ -1,11 +1,12 @@
 <%= form_with model: [@book,@book.comments.build] do |form| %>
   <p>
-    <%= form.label :commenter %>
+    <%= form.label :commenter %>:
     <%= form.text_field :commenter %>
   </p>
   <p>
-    <%= form.label :body %>
+    <%= form.label :body %>:
     <%= form.text_area :body %>
   </p>
+
   <%= form.submit %>
 <% end %>
