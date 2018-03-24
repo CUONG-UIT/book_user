@@ -1,7 +1,7 @@
-<hr>
 <p>
   <strong>Title: <%= @book.title %></strong>
 </p>
+<hr>
 <p>
   <strong>Description: <%= @book.description %></strong>
 </p>
@@ -32,7 +32,7 @@
     <!--and other user only can watch title,author,description,category_name-->
   <%= link_to "Edit" ,edit_book_path(@book) %> |
 
-  <%= link_to "Delete" ,book_path(@book), method: :delete,confirm: {data: "are you sure"} %>
+  <%= link_to "Delete" ,book_path(@book), method: :delete,confirm: {data: "are you sure?"} %>
 
   <% end %>
 <% end %>

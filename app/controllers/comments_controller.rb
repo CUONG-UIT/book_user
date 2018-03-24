@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @book = Book.find(params[:book_id])
-    #find book through book_id
+    # find book through book_id
     @comment = @book.comments.find(params[:id])
     #with each book we find comment to delete
 
