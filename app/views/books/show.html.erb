@@ -1,20 +1,40 @@
+<p>
+<h1><strong>Title: <%= @book.title %></strong></h1>
+</p>
+<p>
+  <%= image_tag @book.book_img.url() ,class: "book-show" %>
+</p>
 <hr>
 <p>
-  <strong>Title: <%= @book.title %></strong>
+  <strong><h3>Description:</h3> <%= @book.description %></strong><hr>
 </p>
 <p>
-  <strong>Description: <%= @book.description %></strong>
+  <strong><h3>Author:</h3> <%= @book.author %></strong><hr>
 </p>
 <p>
-  <strong>Author: <%= @book.author %></strong><hr>
+  <strong><h4>Category:</h4> <%= Category.find(@book.category_id).name %></strong><hr>
+<!--show name of category through category_id of book table.-->
+</p>
+<h2>Comment:</h2>
+<p>
+  <%= render @book.comments %>
+</p>
+<h2>Add Comment</h2>
+<p>
+  <%= render 'comments/form' %>
 </p>
 <%= link_to "Back" ,books_path %>
 
-
 <% if user_signed_in? %>
-  <% if @book.user_id == current_user.id %>
+
+  <!--when user sign in-->
+
+  <% if @book.user_id == current_user.id %> |
+    <!--if user_id of Book table == id when user sign in then user can edit and destroy_-->
+    <!--and other user only can watch title,author,description,category_name-->
   <%= link_to "Edit" ,edit_book_path(@book) %> |
-  <%= link_to "Delete" ,book_path(@book), method: :delete,confirm: {data: "are you sure"} %>
+
+  <%= link_to "Delete" ,book_path(@book), method: :delete,confirm: {data: "are you sure?"} %>
 
   <% end %>
 <% end %>
