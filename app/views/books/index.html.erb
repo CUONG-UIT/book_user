@@ -1,5 +1,6 @@
+<fieldset style="color: black; background-color:gray;">
 <% if @books.blank?%>
-  <h4>There are no Book</h4>
+  <h4s> There are no Book</h4s>
   <% else %>
   <h4>There are some Books</h4>
   <% @books.each do |book| %>
@@ -9,8 +10,8 @@
 
     <a href="/books/<%= book.id %>">
       <%= image_tag book.book_img.url(:book_show) %>
-      <!--when you tick an image,it will render 'show' action,it's represent book.title-->
     </a>
-
     <% end %>
 <% end %>
+<p><%= paginate @books %></p>
+</fieldset>
